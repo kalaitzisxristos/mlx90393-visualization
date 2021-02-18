@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Socket.io</title>
+    <link rel="stylesheet" href="/graph.css" />
+  </head>
+  <body>
+    <style>
+      td {
+        text-align: right;
+        width: 200px;
+      }
+    </style>
+    <h1>Express and socket.io</h1>
+    <div id="app">
+      <table>
+        <tbody>
+          <tr>
+            <td>X</td>
+            <td>{{ x }} uT</td>
+          </tr>
+          <tr>
+            <td>Y</td>
+            <td>{{ y }} uT</td>
+          </tr>
+          <tr>
+            <td>Z</td>
+            <td>{{ z }} uT</td>
+          </tr>
+          <tr>
+            <td>Rotation</td>
+            <td>{{ rotation }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div
+        style="
+          width: 400px;
+          height: 400px;
+          border: 2px solid black;
+          display: inline-block;
+        "
+      >
+        <div
+          style="
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            background-color: black;
+            position: relative;
+          "
+          :style="{ left: left + 'px', top: top + 'px' }"
+        ></div>
+      </div>
+      <div
+        style="
+          width: 400px;
+          height: 400px;
+          border: 2px solid black;
+          border-radius: 100%;
+          display: inline-block;
+        "
+      >
+        <div
+          style="
+            width: 2px;
+            height: 200px;
+            background-color: black;
+            position: relative;
+            left: 200px;
+            transform-origin: bottom center;
+          "
+          :style="{ transform: `rotateZ(${rotation}deg)` }"
+        ></div>
+      </div>
+    </div>
+    <div style="width: 200px; height: 200px" id="some-gay-gruf"></div>
+    <script src="https://vuejs.org/js/vue.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="/graph.js"></script>
+    <script src="/script.js"></script>
+  </body>
+</html>
